@@ -85,9 +85,9 @@ def load_config(start_dir: str | None = None) -> GitAiConfig:
     if val := os.environ.get("GIT_AI_COMMIT_BODY"):
         env_overrides.setdefault("commit", {})["body"] = val
     if val := os.environ.get("GIT_AI_CO_AUTHORED_BY"):
-        env_overrides.setdefault("commit", {}).setdefault("footer", {})[
-            "co_authored_by"
-        ] = val.lower() in ("true", "1", "yes")
+        env_overrides.setdefault("commit", {}).setdefault("footer", {})["co_authored_by"] = (
+            val.lower() in ("true", "1", "yes")
+        )
     if val := os.environ.get("GIT_AI_TEMPLATE"):
         env_overrides.setdefault("templates", {})["default"] = val
 
