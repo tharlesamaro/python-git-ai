@@ -1,10 +1,66 @@
-# Python-generated files
+# Python
 __pycache__/
-*.py[oc]
+*.py[cod]
+*$py.class
+*.so
+*.egg-info/
+*.egg
+.installed.cfg
+MANIFEST
 build/
 dist/
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+sdist/
+var/
 wheels/
-*.egg-info
 
 # Virtual environments
-.venv
+.venv/
+env/
+venv/
+
+# Testing / Coverage
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Type checkers
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytype/
+.pyre/
+
+# Linters
+.ruff_cache/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+pyrightconfig.json
+
+# Claude Code
+.claude/
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
