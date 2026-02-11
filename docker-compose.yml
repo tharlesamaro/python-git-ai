@@ -1,0 +1,20 @@
+services:
+  test:
+    build: .
+    command: uv run pytest -v --cov=src/git_ai --cov-report=term-missing
+    volumes:
+      - ./src:/app/src
+      - ./tests:/app/tests
+      - ./hooks:/app/hooks
+
+  lint:
+    build: .
+    command: sh -c "uv run ruff check src/ && uv run black --check src/"
+    volumes:
+      - ./src:/app/src
+
+  typecheck:
+    build: .
+    command: uv run mypy src/git_ai
+    volumes:
+      - ./src:/app/src
