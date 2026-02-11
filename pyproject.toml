@@ -1,0 +1,82 @@
+[project]
+name = "git-ai"
+version = "0.1.0"
+description = "AI-powered Git workflow automation: smart commit messages, changelog generation, and commit validation"
+readme = "README.md"
+authors = [
+    { name = "Tharles Amaro", email = "tharlesamaro@gmail.com" }
+]
+license = { text = "MIT" }
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.79.0",
+    "gitpython>=3.1.46",
+    "openai>=2.20.0",
+    "pydantic>=2.12.5",
+    "pydantic-settings>=2.11.0",
+    "rich>=14.3.2",
+    "typer>=0.21.2",
+]
+keywords = [
+    "git",
+    "ai",
+    "conventional-commits",
+    "changelog",
+    "cli",
+    "anthropic",
+    "openai",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Version Control :: Git",
+]
+
+[project.urls]
+Homepage = "https://github.com/tharlesamaro/python-git-ai"
+Repository = "https://github.com/tharlesamaro/python-git-ai"
+Issues = "https://github.com/tharlesamaro/python-git-ai/issues"
+
+[project.scripts]
+git-ai = "git_ai.cli:app"
+
+[build-system]
+requires = ["uv_build>=0.10.2,<0.11.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = [
+    "black>=25.11.0",
+    "mypy>=1.19.1",
+    "pytest>=8.4.2",
+    "pytest-cov>=7.0.0",
+    "pytest-mock>=3.15.1",
+    "ruff>=0.15.0",
+]
+
+[tool.black]
+line-length = 100
+target-version = ['py311']
+include = '\.pyi?$'
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "I", "UP"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --cov=src/git_ai --cov-report=html --cov-report=term-missing"
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+ignore_missing_imports = true
